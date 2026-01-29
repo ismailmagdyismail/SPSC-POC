@@ -62,10 +62,84 @@ void TestAcquireRelease()
         unsigned long long uiThreadedResult = AcquireRelease();
         assert(uiThreadedResult == uiSingleThread);
     }
-    std::cout << "All Tests Passed" << std::endl;
+    std::cout << "All Acquire-Release Tests Passed" << std::endl;
+}
+
+void ProducerMutex(unsigned long long *p_arr, unsigned long long p_uiMaxValueToProduce, unsigned long long &p_uiIndex, std::mutex &p_oMutex)
+{
+    unsigned long long valueToProduce = 1;
+    while (valueToProduce <= p_uiMaxValueToProduce)
+    {
+        p_arr[p_uiIndex] = valueToProduce;
+        {
+            std::lock_guard<std::mutex> oLock(p_oMutex);
+            p_uiIndex++;
+        }
+        valueToProduce++;
+    }
+}
+
+void ConsumerMutex(unsigned long long *p_arr, unsigned long long p_uiMaxValueToProduce, unsigned long long &p_uiIndex, std::mutex &p_oMutex, unsigned long long &p_uiFinalOutput)
+{
+    unsigned long long totalSum = 0;
+    unsigned long long uiCurrentIndex = 0;
+    unsigned long long uiLastProcessedIndex = 0;
+    while (uiCurrentIndex < p_uiMaxValueToProduce)
+    {
+        {
+            std::lock_guard<std::mutex> oLock(p_oMutex);
+            uiCurrentIndex = p_uiIndex;
+        }
+        for (unsigned long long i = uiLastProcessedIndex; i < uiCurrentIndex; ++i)
+        {
+            totalSum += p_arr[i];
+        }
+        uiLastProcessedIndex = uiCurrentIndex;
+    }
+    p_uiFinalOutput = totalSum;
+}
+
+unsigned long long MutexProducerConsumer()
+{
+    unsigned long long *arr = new unsigned long long[uiMaxValueToProduce];
+    unsigned long long uiIndex = 0;
+    unsigned long long uiResult = 0;
+    std::mutex oMutex;
+    std::thread producerThread = std::thread(ProducerMutex, arr, uiMaxValueToProduce, std::ref(uiIndex), std::ref(oMutex));
+    std::thread consumerThread = std::thread(ConsumerMutex, arr, uiMaxValueToProduce, std::ref(uiIndex), std::ref(oMutex), std::ref(uiResult));
+
+    producerThread.join();
+    consumerThread.join();
+
+    delete[] arr;
+    return uiResult;
+}
+
+void TestMutex()
+{
+    unsigned long long uiSingleThread = SingleThread();
+    for (int i = 0; i < 1000; ++i)
+    {
+        unsigned long long uiThreadedResult = MutexProducerConsumer();
+        assert(uiThreadedResult == uiSingleThread);
+    }
+    std::cout << "All Mutex Tests Passed" << std::endl;
 }
 
 int main()
 {
-    TestAcquireRelease();
+    std::thread t1 = std::thread(
+        []()
+        {
+            TestAcquireRelease();
+        });
+
+    std::thread t2 = std::thread(
+        []()
+        {
+            TestMutex();
+        });
+
+    t1.join();
+    t2.join();
 }
