@@ -4,7 +4,8 @@
 #include <cassert>
 #include <fstream>
 
-static unsigned long long uiMaxValueToProduce = 100000;
+static unsigned long long uiMaxValueToProduce = 10000000;
+static unsigned int testsCount = 1;
 
 void ProducerRelease(unsigned long long *p_arr, unsigned long long p_uiMaxValueToProduce, std::atomic<unsigned long long> &p_uiIndex)
 {
@@ -57,7 +58,7 @@ unsigned long long SingleThread()
 void TestAcquireRelease()
 {
     unsigned long long uiSingleThread = SingleThread();
-    for (int i = 0; i < 1000; ++i)
+    for (unsigned int i = 0; i < testsCount; ++i)
     {
         unsigned long long uiThreadedResult = AcquireRelease();
         assert(uiThreadedResult == uiSingleThread);
@@ -118,12 +119,34 @@ unsigned long long MutexProducerConsumer()
 void TestMutex()
 {
     unsigned long long uiSingleThread = SingleThread();
-    for (int i = 0; i < 1000; ++i)
+    for (unsigned int i = 0; i < testsCount; ++i)
     {
         unsigned long long uiThreadedResult = MutexProducerConsumer();
         assert(uiThreadedResult == uiSingleThread);
     }
     std::cout << "All Mutex Tests Passed" << std::endl;
+}
+
+//! GPT-Generated
+template <typename Func>
+auto TimeFunction(Func &&f, const char *name)
+{
+    using clock = std::chrono::steady_clock;
+
+    auto start = clock::now();
+    auto result = f();
+    auto end = clock::now();
+
+    auto ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    auto us = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+
+    std::cout << name << ":\n"
+              << "  " << ns << " ns\n"
+              << "  " << us << " us\n"
+              << "  " << ms << " ms\n";
+
+    return result;
 }
 
 int main()
@@ -142,4 +165,7 @@ int main()
 
     t1.join();
     t2.join();
+
+    TimeFunction(AcquireRelease, "AcquireRelease");
+    TimeFunction(MutexProducerConsumer, "MutexProducerConsumer");
 }
