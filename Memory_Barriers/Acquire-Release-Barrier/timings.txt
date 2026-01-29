@@ -1,0 +1,38 @@
+AcquireRelease:
+  753461791 ns
+  753461 us
+  753 ms
+AcquireRelease2:
+  189150083 ns
+  189150 us
+  189 ms
+MutexProducerConsumer:
+  333285792 ns
+  333285 us
+  333 ms
+================================================
+AcquireRelease:
+  764566666 ns
+  764566 us
+  764 ms
+AcquireRelease2:
+  189659542 ns
+  189659 us
+  189 ms
+MutexProducerConsumer:
+  324296958 ns
+  324296 us
+  324 ms
+================================================
+AcquireRelease:
+  730794167 ns
+  730794 us
+  730 ms
+AcquireRelease2:
+  266629167 ns
+  266629 us
+  266 ms
+MutexProducerConsumer:
+  422149375 ns
+  422149 us
+  422 ms
