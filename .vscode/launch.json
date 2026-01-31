@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "SPSC Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/SpscQueue_Poc/main.exe",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    }
+  ]
+}

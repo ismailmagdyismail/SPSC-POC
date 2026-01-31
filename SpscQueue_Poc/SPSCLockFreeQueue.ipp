@@ -3,6 +3,10 @@
 template <typename ElementsDataType>
 SPSCLockFreeQueue<ElementsDataType>::SPSCLockFreeQueue(int p_tMaxBufferSize)
 {
+    if (p_tMaxBufferSize <= 1)
+    {
+        throw std::runtime_error("Cannot Create a SPSCLockFreeQueue with size <= 1");
+    }
     m_iMaxBufferSize = p_tMaxBufferSize;
     m_arrBuffer = new ElementsDataType *[m_iMaxBufferSize];
 }

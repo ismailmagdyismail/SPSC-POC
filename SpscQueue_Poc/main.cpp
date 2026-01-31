@@ -30,11 +30,11 @@ void ConsumerThread(SPSCLockFreeQueue<long long> *p_pSPSCQueue, long long *p_llT
     *p_llTotal = total;
 }
 
-void RunSummationTC(int p_iMaxElement)
+void RunSummationTC(int p_iMaxElement, int p_iMaxQueueSize)
 {
     const long long expectedSum = (p_iMaxElement * (p_iMaxElement + 1)) / 2LL;
 
-    SPSCLockFreeQueue<long long> oSPSCQueue(2);
+    SPSCLockFreeQueue<long long> oSPSCQueue(p_iMaxQueueSize);
     long long total = 0;
     std::thread producer = std::thread(ProducerThread, &oSPSCQueue, p_iMaxElement);
     std::thread consumer = std::thread(ConsumerThread, &oSPSCQueue, &total, expectedSum);
@@ -50,10 +50,13 @@ void RunSummationTC(int p_iMaxElement)
 
 int main()
 {
-    std::vector<int> TCs = {10, 100, 212, 1000, 2000};
+    std::vector<std::pair<int, int>> TCs = {{10, 2}, {100, 100}, {212, 2}, {1000, 2000}, {2000, 50000}, {10, 9}};
+    // std::vector<std::pair<int, int>> TCs = {{2, 1}}; // Will throw, Cannot Create SPSCLFQueue with size <= 1 .
     int iTCsCount = TCs.size();
     for (int i = 0; i < iTCsCount; ++i)
     {
-        RunSummationTC(TCs[i]);
+        int iMaxElementsToSumTo = TCs[i].first;
+        int iMaxQueueSize = TCs[i].second;
+        RunSummationTC(iMaxElementsToSumTo, iMaxQueueSize);
     }
 }
