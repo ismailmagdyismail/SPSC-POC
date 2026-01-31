@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------
+Benchmark                               Time             CPU   Iterations
+-------------------------------------------------------------------------
+BM_MutexConsumption/100/10          35662 ns         5947 ns       119420
+BM_MutexConsumption/512/10          68186 ns         8167 ns        84754
+BM_MutexConsumption/4096/10       1129308 ns        10927 ns        10000
+BM_MutexConsumption/10000/10      2280432 ns        11677 ns        10000
+BM_MutexConsumption/100/64          37144 ns         6138 ns       112946
+BM_MutexConsumption/512/64         175063 ns         9783 ns        75327
+BM_MutexConsumption/4096/64        932051 ns        10990 ns        10000
+BM_MutexConsumption/10000/64      2098918 ns        11784 ns        10000
+BM_MutexConsumption/100/512         36795 ns         6253 ns       117102
+BM_MutexConsumption/512/512        151816 ns         9919 ns        68875
+BM_MutexConsumption/4096/512       904876 ns        11320 ns        10000
+BM_MutexConsumption/10000/512     2032901 ns        11678 ns        10000
+BM_MutexConsumption/100/1000        38888 ns         6278 ns       114845
+BM_MutexConsumption/512/1000       130739 ns         9965 ns        71120
+BM_MutexConsumption/4096/1000      852855 ns        11063 ns        10000
+BM_MutexConsumption/10000/1000    2131462 ns        11765 ns        10000
+
+------------------------------------------------------------------------
+Benchmark                              Time             CPU   Iterations
+------------------------------------------------------------------------
+BM_SPSCConsumption/100/10        1097966 ns         9528 ns        10000
+BM_SPSCConsumption/512/10        6176078 ns        11278 ns         1000
+BM_SPSCConsumption/4096/10      49870885 ns        18729 ns          100
+BM_SPSCConsumption/10000/10    119661491 ns        22503 ns          100
+BM_SPSCConsumption/100/64         149362 ns         8677 ns        76188
+BM_SPSCConsumption/512/64         843107 ns         9219 ns        10000
+BM_SPSCConsumption/4096/64       7363421 ns        11031 ns         1000
+BM_SPSCConsumption/10000/64     18516260 ns        13830 ns         1000
+BM_SPSCConsumption/100/512         27512 ns         5845 ns       118878
+BM_SPSCConsumption/512/512         86879 ns         7975 ns        87491
+BM_SPSCConsumption/4096/512      1080799 ns         9763 ns        10000
+BM_SPSCConsumption/10000/512     2542890 ns         9892 ns         1000
+BM_SPSCConsumption/100/1000        32005 ns         5646 ns       129597
+BM_SPSCConsumption/512/1000        84414 ns         7924 ns        88729
+BM_SPSCConsumption/4096/1000      959718 ns         9519 ns        10000
+BM_SPSCConsumption/10000/1000    2249369 ns        10285 ns        10000
