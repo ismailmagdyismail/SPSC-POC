@@ -28,11 +28,12 @@ private:
     inline bool HasElementsToRead();
     inline bool HasSpaceToWrite();
 
+    static const unsigned int CACHE_SIZE = 64;
     int m_iMaxBufferSize;
-    std::atomic<int> m_iWritePosition{-1};
-    std::atomic<int> m_iReadPosition{-1};
-    std::atomic<bool> m_bIsWritingEnabled{true};
-    std::atomic<bool> m_bIsReadingEnabled{true};
+    alignas(CACHE_SIZE) std::atomic<int> m_iWritePosition{-1};
+    alignas(CACHE_SIZE) std::atomic<int> m_iReadPosition{-1};
+    alignas(CACHE_SIZE) std::atomic<bool> m_bIsWritingEnabled{true};
+    alignas(CACHE_SIZE) std::atomic<bool> m_bIsReadingEnabled{true};
     ElementsDataType **m_arrBuffer;
 };
 
