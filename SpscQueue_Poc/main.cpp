@@ -2,8 +2,10 @@
 #include <cassert>
 
 #include "SPSCLockFreeQueue.h"
+#include "SPSCLockBasedQueue.h"
 
-void ProducerThread(SPSCLockFreeQueue<long long> *p_pSPSCQueue, int p_iMaxElement)
+template <template <typename> class QueueType>
+void ProducerThread(QueueType<long long> *p_pSPSCQueue, int p_iMaxElement)
 {
     for (int i = 1; i <= p_iMaxElement; ++i)
     {
@@ -11,7 +13,8 @@ void ProducerThread(SPSCLockFreeQueue<long long> *p_pSPSCQueue, int p_iMaxElemen
     }
 }
 
-void ConsumerThread(SPSCLockFreeQueue<long long> *p_pSPSCQueue, long long *p_llTotal, long long p_llExpected)
+template <template <typename> class QueueType>
+void ConsumerThread(QueueType<long long> *p_pSPSCQueue, long long *p_llTotal, long long p_llExpected)
 {
     long long total = 0;
     while (p_llExpected != total)
@@ -30,14 +33,15 @@ void ConsumerThread(SPSCLockFreeQueue<long long> *p_pSPSCQueue, long long *p_llT
     *p_llTotal = total;
 }
 
+template <template <typename> class QueueType>
 void RunSummationTC(int p_iMaxElement, int p_iMaxQueueSize)
 {
     const long long expectedSum = (p_iMaxElement * (p_iMaxElement + 1)) / 2LL;
 
-    SPSCLockFreeQueue<long long> oSPSCQueue(p_iMaxQueueSize);
+    QueueType<long long> oSPSCQueue(p_iMaxQueueSize);
     long long total = 0;
-    std::thread producer = std::thread(ProducerThread, &oSPSCQueue, p_iMaxElement);
-    std::thread consumer = std::thread(ConsumerThread, &oSPSCQueue, &total, expectedSum);
+    std::thread producer(ProducerThread<QueueType>, &oSPSCQueue, p_iMaxElement);
+    std::thread consumer(ConsumerThread<QueueType>, &oSPSCQueue, &total, expectedSum);
 
     producer.join();
     consumer.join();
@@ -57,6 +61,12 @@ int main()
     {
         int iMaxElementsToSumTo = TCs[i].first;
         int iMaxQueueSize = TCs[i].second;
-        RunSummationTC(iMaxElementsToSumTo, iMaxQueueSize);
+        RunSummationTC<SPSCLockFreeQueue>(iMaxElementsToSumTo, iMaxQueueSize);
+    }
+    for (int i = 0; i < iTCsCount; ++i)
+    {
+        int iMaxElementsToSumTo = TCs[i].first;
+        int iMaxQueueSize = TCs[i].second;
+        RunSummationTC<SPSCLockBasedQueue>(iMaxElementsToSumTo, iMaxQueueSize);
     }
 }
