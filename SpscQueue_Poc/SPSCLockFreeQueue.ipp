@@ -1,5 +1,3 @@
-#include "SPSCLockFreeQueue.h"
-
 template <typename ElementsDataType>
 SPSCLockFreeQueue<ElementsDataType>::SPSCLockFreeQueue(int p_tMaxBufferSize)
 {
