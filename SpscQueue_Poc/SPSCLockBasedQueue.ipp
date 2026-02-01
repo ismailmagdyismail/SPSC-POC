@@ -14,6 +14,8 @@ SPSCLockBasedQueue<ElementsDataType>::SPSCLockBasedQueue(int p_tMaxBufferSize)
 template <typename ElementsDataType>
 SPSCLockBasedQueue<ElementsDataType>::~SPSCLockBasedQueue()
 {
+    StopReading();
+    StopWriting();
     while (HasElementsToRead())
     {
         int iReadPosition = GetNextReadPosition();
@@ -27,6 +29,7 @@ void SPSCLockBasedQueue<ElementsDataType>::StopWriting()
 {
     std::lock_guard<std::mutex> oLock{m_oBufferMutex};
     m_bIsWritingEnabled = false;
+    m_oSlotAvailableCv.notify_all();
 }
 
 template <typename ElementsDataType>
@@ -34,6 +37,7 @@ void SPSCLockBasedQueue<ElementsDataType>::StopReading()
 {
     std::lock_guard<std::mutex> oLock{m_oBufferMutex};
     m_bIsReadingEnabled = false;
+    m_oDataReadyCv.notify_all();
 }
 
 template <typename ElementsDataType>
