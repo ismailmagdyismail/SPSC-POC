@@ -1,0 +1,92 @@
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 1
+Bencmarking Type = Mutex
+TIME:
+  920228250 ns
+  920228 us
+  920 ms
+Non-Atomic-Counter 100000000
+Atomic-Counter 0
+
+======================================================
+
+Number of threads to Use in Benchmarking = 2
+Bencmarking Type = Mutex
+TIME:
+  1621928416 ns
+  1621928 us
+  1621 ms
+Non-Atomic-Counter 100000001
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 4
+Bencmarking Type = Mutex
+TIME:
+  3115833458 ns
+  3115833 us
+  3115 ms
+Non-Atomic-Counter 100000002
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 8
+Bencmarking Type = Mutex
+TIME:
+  2934546125 ns
+  2934546 us
+  2934 ms
+Non-Atomic-Counter 100000006
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 16
+Bencmarking Type = Mutex
+TIME:
+  3254021292 ns
+  3254021 us
+  3254 ms
+Non-Atomic-Counter 100000013
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 32
+Bencmarking Type = Mutex
+TIME:
+  3488535375 ns
+  3488535 us
+  3488 ms
+Non-Atomic-Counter 100000027
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 64
+Bencmarking Type = Mutex
+TIME:
+  3116391416 ns
+  3116391 us
+  3116 ms
+Non-Atomic-Counter 100000061
+Atomic-Counter 0
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 128
+Bencmarking Type = Mutex
+TIME:
+  3622142084 ns
+  3622142 us
+  3622 ms
+Non-Atomic-Counter 100000120
+Atomic-Counter 0

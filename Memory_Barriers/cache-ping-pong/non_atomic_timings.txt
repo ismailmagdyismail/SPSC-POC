@@ -1,0 +1,54 @@
+Threads_Count: 1 
+TIME:
+  92209 ns
+  92 us
+  0 ms
+===========================
+Threads_Count: 2
+TIME:
+    10778084 ns
+    10778 us
+    10 ms
+===========================
+Threads_Count: 4
+TIME:
+  12603041 ns
+  12603 us
+  12 ms
+===========================
+Threads_Count: 6
+TIME:
+  13254708 ns
+  13254 us
+  13 ms
+===========================
+Threads_Count: 12
+TIME:
+  12528834 ns
+  12528 us
+  12 ms 
+===========================
+Threads_Count: 24
+TIME:
+  12571750 ns
+  12571 us
+  12 ms
+===========================
+Threads_Count: 36
+36
+TIME:
+  12451250 ns
+  12451 us
+  12 ms
+===========================
+Threads_Count: 64
+TIME:
+  11432458 ns
+  11432 us
+  11 ms
+===========================
+Threads_Count: 128
+TIME:
+  11925792 ns
+  11925 us
+  11 ms

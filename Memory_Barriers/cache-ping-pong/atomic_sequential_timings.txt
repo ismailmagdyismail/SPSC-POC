@@ -1,0 +1,91 @@
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 1
+Bencmarking Type = Atomic-Sequential
+TIME:
+  812901416 ns
+  812901 us
+  812 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000000
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 2
+Bencmarking Type = Atomic-Sequential
+TIME:
+  1737854584 ns
+  1737854 us
+  1737 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000001
+
+======================================================
+
+Bencmarking Type = Atomic-Sequential
+TIME:
+  2278667333 ns
+  2278667 us
+  2278 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000002
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 8
+Bencmarking Type = Atomic-Sequential
+TIME:
+  3923772333 ns
+  3923772 us
+  3923 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000006
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 16
+Bencmarking Type = Atomic-Sequential
+TIME:
+  3685563250 ns
+  3685563 us
+  3685 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000006
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 32
+Bencmarking Type = Atomic-Sequential
+TIME:
+  3833029791 ns
+  3833029 us
+  3833 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000008
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 64
+Bencmarking Type = Atomic-Sequential
+TIME:
+  3892086875 ns
+  3892086 us
+  3892 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000009
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 128
+Bencmarking Type = Atomic-Sequential
+TIME:
+  3910415333 ns
+  3910415 us
+  3910 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000017

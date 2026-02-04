@@ -1,0 +1,93 @@
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 1
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  239927208 ns
+  239927 us
+  239 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000000
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 2
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  493848125 ns
+  493848 us
+  493 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000001
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 4
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  902903250 ns
+  902903 us
+  902 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000003
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 8
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  1992956000 ns
+  1992956 us
+  1992 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000007
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 16
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  1954020833 ns
+  1954020 us
+  1954 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000002
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 32
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  2045375042 ns
+  2045375 us
+  2045 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000007
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 64
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  1982694542 ns
+  1982694 us
+  1982 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000010
+
+======================================================
+
+Current Machine's Available Threads = 8
+Number of threads to Use in Benchmarking = 128
+Bencmarking Type = Atomic-Relaxed
+TIME:
+  1905561042 ns
+  1905561 us
+  1905 ms
+Non-Atomic-Counter 0
+Atomic-Counter 100000005
