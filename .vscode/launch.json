@@ -11,6 +11,18 @@
       "environment": [],
       "externalConsole": false,
       "MIMode": "lldb"
+    },
+    {
+      "name": "WaitFree Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/WaitFree-Queue/main.exe",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
     }
   ]
 }
